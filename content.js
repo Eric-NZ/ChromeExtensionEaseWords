@@ -17,10 +17,11 @@ function onMouseUp() {
     if (text.length > 0) {
         // message is a json object
         let message = {
-            msgText: text
+            "msgText": text
         };
+        // send a message with the selected text to the background page
+        // chrome.runtime.sendMessage(message)
 
-        chrome.runtime.sendMessage(message)
         selectedText.currentValue = text
     }
 }
