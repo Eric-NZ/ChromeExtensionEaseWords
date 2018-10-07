@@ -15,14 +15,14 @@ var selectedText =  {
             "isContextMenu": isContextMenu
         };
         // send a message with the selected text to the background page
-        chrome.runtime.sendMessage(message);
+        // chrome.runtime.sendMessage(message);
     }
 }
 
 // Add a listener on double click or click event
-window.addEventListener('mouseup', onMouseUp);
+// window.addEventListener('mouseup', onMouseUp);
 // Add a listener on right click event
-window.addEventListener('contextmenu', onContentMenu);
+// window.addEventListener('contextmenu', onContentMenu);
 
 // handle mouse up event
 function onMouseUp() {

@@ -30,7 +30,8 @@
 
     "background": {
         "scripts": [
-            "background.js"
-        ]
+            "eventPage.js"
+        ],
+        "persistent": false
     }
 }
