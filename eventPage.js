@@ -1,35 +1,32 @@
-
 // handle received message
 // chrome.runtime.onMessage.addListener(onReceiveMessage)
+// function onReceiveMessage(request, sender, sendResponse) {
+//     let selectedWord = request.msgText
+//     let isContextMenu = request.isContextMenu
+
+// KVO selected text
+var selectedText = {
+    set currentValue(newValue) {
+        console.log(newValue);
+    }
+};
+
+createContextMenu();
 
 // register a listener for contextMenus.onClicked.
 chrome.contextMenus.onClicked.addListener(onMenuItemClicked);
 
-function onReceiveMessage(request, sender, sendResponse) {
-    let selectedWord = request.msgText
-    let isContextMenu = request.isContextMenu
-
-    // create context menu item
-    if (isContextMenu) {
-        createContextMenu(selectedWord)
-    }
-}
-
-// create a context menu item
-createContextMenu("Ease Words")
 // NOTE: chrome.contextMenus is undefined in the content script.
-function createContextMenu(menuTitle) {
+function createContextMenu() {
     // NOTE: using event pages must pass an id parameter to chrome.contextMenus.create
     let item = {
         "id": "EaseWords",
-        "title": menuTitle,
+        "title": "Save '%s' to EaseWords",
         "contexts": ['selection'],
     };
-    chrome.contextMenus.create(item);
+    chrome.contextMenus.create(item, null);
     console.log(item)
 }
-
-chrome.contextMenus.onClicked
 
 function onMenuItemClicked() {
     console.log("Menu item clicked!")
