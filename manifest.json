@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Ease Words",
+    "version": "1.0",
+    "description": "Easier for you to collect your new words and review on your mobile phone.",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "browser_action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html"
+    }
+}
