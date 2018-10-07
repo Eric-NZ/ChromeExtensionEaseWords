@@ -1,3 +1,8 @@
+var selectedWord = "none selected"
+// handle received message
+chrome.runtime.onMessage.addListener(onReceiveMessage)
 
-console.log('Background is running!');
-
+function onReceiveMessage(request, sender, sendResponse) {
+    selectedWord = request.msgText
+    console.log(selectedWord)
+}
