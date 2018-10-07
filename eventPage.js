@@ -1,16 +1,4 @@
-// handle received message
-// chrome.runtime.onMessage.addListener(onReceiveMessage)
-// function onReceiveMessage(request, sender, sendResponse) {
-//     let selectedWord = request.msgText
-//     let isContextMenu = request.isContextMenu
-
-// KVO selected text
-var selectedText = {
-    set currentValue(newValue) {
-        console.log(newValue);
-    }
-};
-
+// create context menu item
 createContextMenu();
 
 // register a listener for contextMenus.onClicked.
@@ -28,6 +16,13 @@ function createContextMenu() {
     console.log(item)
 }
 
-function onMenuItemClicked() {
-    console.log("Menu item clicked!")
+function onMenuItemClicked(info) {
+    if (info.selectionText.length > 0) {
+        // add new word to list
+        addNewWord(info.selectionText);
+    }
+}
+
+function addNewWord(selectionText) {
+    console.log("I am going to add new word".concat(" ", selectionText));
 }
